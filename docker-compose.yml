@@ -11,13 +11,11 @@ services:
     labels:
       - "traefik.enable=true"
 
-      # Domínio
-      - "traefik.http.routers.webchat.rule=Host(`chat.dutratech.cloud`)"
+      # DOMÍNIO HOSTINGER (HTTPS JÁ VÁLIDO)
+      - "traefik.http.routers.webchat.rule=Host(`chat.srv1144019.hstgr.cloud`)"
       - "traefik.http.routers.webchat.entrypoints=websecure"
-      - "traefik.http.routers.webchat.tls=true"
-      - "traefik.http.routers.webchat.tls.certresolver=letsencrypt"
 
-      # Porta interna do Flask
+      # PORTA INTERNA DO FLASK
       - "traefik.http.services.webchat.loadbalancer.server.port=5500"
 
     restart: unless-stopped
