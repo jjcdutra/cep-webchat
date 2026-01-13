@@ -6,20 +6,6 @@ services:
     container_name: cep-webchat
     env_file:
       - .env
-    networks:
-      - n8n_default
-    labels:
-      - "traefik.enable=true"
-
-      # DOMÍNIO HOSTINGER (HTTPS JÁ VÁLIDO)
-      - "traefik.http.routers.webchat.rule=Host(`chat.srv1144019.hstgr.cloud`)"
-      - "traefik.http.routers.webchat.entrypoints=websecure"
-
-      # PORTA INTERNA DO FLASK
-      - "traefik.http.services.webchat.loadbalancer.server.port=5500"
-
+    ports:
+      - "127.0.0.1:5500:5500"
     restart: unless-stopped
-
-networks:
-  n8n_default:
-    external: true
