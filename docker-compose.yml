@@ -4,8 +4,24 @@ services:
   webchat:
     build: .
     container_name: cep-webchat
-    ports:
-      - "${FLASK_PORT}:5500"
     env_file:
       - .env
+    networks:
+      - n8n_default
+    labels:
+      - "traefik.enable=true"
+
+      # Domínio
+      - "traefik.http.routers.webchat.rule=Host(`chat.dutratech.cloud`)"
+      - "traefik.http.routers.webchat.entrypoints=websecure"
+      - "traefik.http.routers.webchat.tls=true"
+      - "traefik.http.routers.webchat.tls.certresolver=letsencrypt"
+
+      # Porta interna do Flask
+      - "traefik.http.services.webchat.loadbalancer.server.port=5500"
+
     restart: unless-stopped
+
+networks:
+  n8n_default:
+    external: true
