@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chatbot CEP</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="chat-header">Consulta de CEP</div>
+
+  <div id="chat" class="chat-messages">
+    <div class="message bot">
+      Olá 👋 Informe um CEP para consulta.
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input id="cepInput" placeholder="Digite o CEP" />
+    <button type="button" id="sendBtn">Enviar</button>
+  </div>
+</div>
+
+<script>
+  window.API_KEY = "{{ API_KEY }}";
+  window.WEBHOOK_URL = "{{ WEBHOOK_URL }}";
+</script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

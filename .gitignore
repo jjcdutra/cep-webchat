@@ -1,0 +1,46 @@
+# Byte-code files
+*.pyc
+__pycache__/
+# For users who want to ignore class files (e.g. Eclipse project files)
+*.class
+
+# C extensions
+*.so
+*.wo
+
+# Distribution / packaging
+.Python
+build/
+dist/
+develop-eggs/
+eggs/
+*.egg-info/
+.installed.cfg
+*.manifest
+wheelhouse/
+*.whl
+
+# PyInstaller
+# Please follow the directions in the documentation to ensure your build
+# directory is excluded from source control.
+# docs/spec-files.html#targeting-a-different-os
+# name.spec
+# build/
+# dist/
+
+# Unit test / coverage
+.coverage
+.tox/
+.nox/
+
+# Editors and IDEs
+.idea/  # For PyCharm
+.vscode/ # For VS Code
+*.swp   # For Vim
+
+# Environments
+.env    # python-dotenv environment files
+venv/
+env/
+# specific environment folders
+.venv/
